@@ -139,6 +139,20 @@ static InAppPurchaseHelper *sharedInstance;
   }
 }
 
+
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
+    
+    self.restoredProducts = [[NSMutableArray alloc] init];
+    
+    for (SKPaymentTransaction *transaction in queue.transactions)
+    {
+        NSString *productID = transaction.payment.productIdentifier;
+        [self.restoredProducts addObject:productID];
+    }
+}
+
+
+
 #pragma mark - Private Methods
 
 /**

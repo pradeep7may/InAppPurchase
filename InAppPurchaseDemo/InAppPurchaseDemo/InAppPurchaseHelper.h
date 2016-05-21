@@ -14,6 +14,9 @@
     NSString *productIdentifier;
 }
 
+@property (nonatomic, retain) NSMutableArray *restoredProducts;
+
+
 /**
  *  This function is used to get singelton object of this class.
  *
